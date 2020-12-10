@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{%include 'base.html'%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>enquiry form</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-4 col-md-4">
+            {% for i in data %}
+            name: {{i.name}}<br>
+            email: {{i.email}}<br>
+            mobile: {{i.mobile}}<br>
+            course: {{i.course}}<br>
+            location: {{i.location}}<br>
+            gender: {{i.gender}}<br>
+            date: {{i.date}}<br><br>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<hr>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-4 col-md-4">
+            <form method="post">
+            {{form.as_p}}
+            {% csrf_token %}
+            <button class="btn btn-success">send</button>
+                </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

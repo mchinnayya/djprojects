@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{%include 'base.html'%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>enquiry form</title>
+</head>
+<body>
+<br>
+<div class="container">
+{%for i in enquiry%}
+{{i.name}}<br>
+    {{i.email}}<br>
+    {{i.mobile}}<br>
+    {{i.course}}<br>
+    {{i.location}}<br>
+    {{i.gender}}<br>
+    {{i.date}}<br>
+
+<hr>
+{%endfor%}
+<hr><br><br>
+    </div>
+<form method="POST">
+    <div class="container">
+    {{form.as_p}}
+    {% csrf_token %}
+    <button class="btn btn-success">send</button>
+        </div>
+</form>
+</body>
+</html>

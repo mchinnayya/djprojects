@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content%}
+
+<br><br>
+<div class="container">
+
+    <table class="table table-sm table-bordered">
+        <tr>
+            <th>task</th>
+            <th>update</th>
+            <th>delete</th>
+        </tr>
+        {% for i in task %}
+    <tr>
+        <td>{{i.work}}</td>
+        <td><a href="/update/{{i.id}}"><button class="btn btn-success">update</button></a></td>
+        <td><a href="/delete/{{i.id}}"><button class="btn btn-danger">delete</button></a></td>
+    </tr>
+
+    {% endfor %}
+        </table>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="offset-md-4 cols-md-4">
+            <form method="post">
+        {% csrf_token %}
+        {{form}}
+        <button class="btn btn-success">add task</button>
+    </form>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}
